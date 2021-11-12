@@ -18,10 +18,10 @@ def get_projects(token,organization):
    jsonDominio = {}
    for key in jsonData:
       for key2 in jsonData[key]:
-         if jsonData[key][key2]['Proyecto'] in jsonDominio:
-            jsonDominio[jsonData[key][key2]['Proyecto']].append(jsonData[key][key2])
+         if jsonData[key][key2]['Dominio'] in jsonDominio:
+            jsonDominio[jsonData[key][key2]['Dominio']].append(jsonData[key][key2])
          else:
-            jsonDominio[jsonData[key][key2]['Proyecto']] = [jsonData[key][key2]]
+            jsonDominio[jsonData[key][key2]['Dominio']] = [jsonData[key][key2]]
    return render_template("template/index.html", jsonfile=jsonString, jsonDominioString = json.dumps(jsonDominio))
 
 @app.route('/readme', defaults={'path': ''})
